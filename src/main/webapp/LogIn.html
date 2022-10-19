@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LogIn</title>
+<link href="CSS/loginCSS.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="encabezado">
+		<div class="rojo"></div>
+  		<div class="rosa">
+			  <img src="CSS/IMAGES/2038509.png"  width=4% id="headerImage">
+		  </div>
+	</div>
+	<div id="Big" align="center">
+		<!--Imagen de preview-->
+		<div id="image">
+		</div>
+		<!-- Contenedor de login y singup -->
+		<div id="Logincontainer">
+			<h2 id="LogInTitle">LOG IN</h2>
+			<hr>
+			<!-- Div de login -->
+			<div id="log_in">
+				
+				<form action="loginProbe.jsp" method="post">
+				<!-- Anotación para CSS: añadir un tamaño comun a los inputs -->
+					<p>Username: </p>
+					<input type="text" name="username">
+					<p>Password: </p>
+					<input type="password" name="password">
+					<br>
+					<br>
+					<button type="submit" name="logIn">Log in</button>
+				</form>
+			</div>
+			<hr color="bala">
+			<!-- Div para redirigir a registro -->
+			<div id="go_reg">
+				<form action="SignUp.jsp" method="post">
+					<p>¿No tienes cuenta?</p>
+					<button type="submit" name="toSignUp">Sign Up</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
