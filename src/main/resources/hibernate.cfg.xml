@@ -10,5 +10,7 @@
   <property name="hibernate.connection.password">felipe</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
+  <mapping class="com.jacaranda.User"/>
+  <mapping class="com.jacaranda.Event"/>
  </session-factory>
 </hibernate-configuration>

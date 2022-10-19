@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+html,body{  
+	margin: 0;
+	height: 100%;
+}
+
+body {
+  font-family: 'Electrolize', sans-serif;
+  background: 
+  -webkit-linear-gradient(rgba(135, 60, 255, 1), rgba(135, 60, 255, 0.0) 0%),
+ -webkit-linear-gradient(46deg,rgb(237, 237, 237) 45%,rgb(216, 217, 207) 0%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#Big{
+	padding-top: 9%;
+}
+
+
+.rojo {
+	width: 20%;
+	height: 40px;
+	display: block;
+	position: absolute;
+	z-index: 2;
+}
+  
+.rojo::after {
+	content: "";
+	position: absolute;
+	right: -20px;
+	width: 150%;
+	height: 40px;
+	background: rgb(226, 104, 104);
+	transform: skew(40deg);
+}
+  
+.rosa {
+	background: rgb(255, 135, 135);
+	width: 80%;
+	right: 0px;
+	height: 65px;
+	display: block;
+	position: absolute;
+	z-index: 1;
+}
+  
+.rosa::before {
+	content: "";
+	position: absolute;
+	left: -32px;
+	width: 65px;
+	height: 65px;
+	background: rgb(226, 104, 104);
+	transform: skew(40deg);
+}
+
+#Logincontainer{
+	margin-right: 17%;
+	padding-top: 2%;
+	padding-bottom: 5%;
+	padding-left: 5%;
+	padding-right: 5%;
+	float: right;
+	background-color:rgb(237, 237, 237);
+}
+
+#LogInTitle{
+	margin-bottom: 35%;
+}
+
+#image{
+	margin-top: 12%;
+	margin-left: 9%;
+	padding: 10%;
+	float: left;
+	background-image: url(IMAGES/block-de-notas-11551048633wgqpmnopdy-removebg-preview.png);
+	background-size: cover;
+}
+
+hr{
+	border-color: black;
+	background-color: black;
+	height: 0.1px;
+}
+
+#headerImage{
+	padding-left:93%;
+}

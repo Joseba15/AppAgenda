@@ -1,8 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>LogIn</title>
+<!-- Es posible que haya que convertir este html a jsp para controlar que
+el usuario en cuestion existe en la base de datos y que su contraseña es correcta
+Otra opcion es crear un jsp intermedio entre login/signup y principal que confirme
+esto -->
+
 <link href="CSS/loginCSS.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,6 +18,10 @@
 			  <img src="CSS/IMAGES/2038509.png"  width=4% id="headerImage">
 		  </div>
 	</div>
+	
+	
+	<!--Div contenedor: contenido provisional, falta probar y mejorar
+	presentación al usuario antes de comenzar con CSS-->
 	<div id="Big" align="center">
 		<!--Imagen de preview-->
 		<div id="image">
@@ -26,7 +36,7 @@
 				<form action="loginProbe.jsp" method="post">
 				<!-- Anotación para CSS: añadir un tamaño comun a los inputs -->
 					<p>Username: </p>
-					<input type="text" name="username">
+					<input type="text" name="user">
 					<p>Password: </p>
 					<input type="password" name="password">
 					<br>

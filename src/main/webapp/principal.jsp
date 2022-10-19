@@ -9,12 +9,14 @@
 
 
 
-<%	CRUDSession crudSession = new CRUDSession();
-User usuario = crudSession.getUser(request.getParameter("username"));
-
-if(usuario == null || usuario.getPassword() == request.getParameter("password")){
+<%	
+	String isSession = (String) session.getAttribute("login");
+	String user = (String) session.getAttribute("usuario");
+	String password = (String) session.getAttribute("password");
+	
+	if(isSession == null && user == null){
 	response.sendRedirect("Error.html");
-}
+	} 
 %>
 <!DOCTYPE html>
 <html>
@@ -35,26 +37,20 @@ if(usuario == null || usuario.getPassword() == request.getParameter("password"))
 	
 		
 		
-		<% 	CRUDUsuario us = new CRUDUsuario(user,password);
-			List<Integer> lista = us.getIds();
+		<% 	User us = new User(user,password);
+			CRUDSession crs1 = new CRUDSession();
+			List<User> lista = crs1.getAllUser();
 		 %>
 			<table id="Info">
 			<tr>
-	               	<th>Descripcion</th>
-	           		<th>Fecha</th>
-	               	<th>Hora</th>
-	               	<th>Activo</th>
+	               	<th>Usuario</th>
 	               	<td colspan="2"><a href="Formulario.jsp?value=<%=user%>"><img src="CSS/IMAGES/mas.png"  width=5%></a></td>
 				</tr>
 			<% for(int i=0; i<lista.size(); i++){  %>
-			<% CRUDEvent e = new CRUDEvent(lista.get(i)); %>
+			
 			<tr>
-				<td><%=e.getDescripcion()%></td>
-				<td><%=e.getFecha()%></td>
-				<td><%=e.getHora()%></td>
-				<td><%=e.isActivo()%></td>
-				<td class="transparent"><a href="Update.jsp?value=<%=e.getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
-				<td class="transparent"><a href="Delete.jsp?value=<%=e.getId()%>"><img src="CSS/IMAGES/borrado.png" id="borrado"  width=10%></a></td>
+				<td><%=lista.get(i).getUsername()%></td>
+				<td colspan="2" class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
 			</tr>
 			<%} %>
 			</table>

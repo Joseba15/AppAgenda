@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Event {
@@ -15,18 +17,22 @@ public class Event {
 	private boolean activo;
 	private String descripcion;
 	private String username;
+	@ManyToOne
+	@JoinColumn(name="id")
+	private int userId;
 
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Event(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username) {
+	public Event(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
 		this.id = id;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.activo = activo;
 		this.descripcion = descripcion;
 		this.username = username;
+		this.userId = userId;
 	}
 
 	public LocalDate getFecha() {
@@ -72,7 +78,11 @@ public class Event {
 	public int getId() {
 		return id;
 	}
-	
-	
+	public int getUserId() {
+		return id;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 }
