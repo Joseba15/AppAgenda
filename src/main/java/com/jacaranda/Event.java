@@ -1,6 +1,7 @@
 package com.jacaranda;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -72,7 +73,25 @@ public class Event {
 	public int getId() {
 		return id;
 	}
-	
-	
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(activo, descripcion, fecha, hora, id, username);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		return activo == other.activo && Objects.equals(descripcion, other.descripcion)
+				&& Objects.equals(fecha, other.fecha)
+				&& Double.doubleToLongBits(hora) == Double.doubleToLongBits(other.hora) && id == other.id
+				&& Objects.equals(username, other.username);
+	}
+	
 }

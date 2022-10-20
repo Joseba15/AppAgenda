@@ -9,12 +9,13 @@
 
 
 
-<%	CRUDSession crudSession = new CRUDSession();
-User usuario = crudSession.getUser(request.getParameter("username"));
+<%	String isSession = (String) session.getAttribute("login");
+	String user = (String) session.getAttribute("usuario");
+	String password = (String) session.getAttribute("password");
 
-if(usuario == null || usuario.getPassword() == request.getParameter("password")){
+if(isSession == null && user == null){
 	response.sendRedirect("Error.html");
-}
+} 
 %>
 <!DOCTYPE html>
 <html>
