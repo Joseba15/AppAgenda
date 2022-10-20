@@ -82,7 +82,7 @@ public class CRUDSession {
 	
 	
 	public void saveEvento(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
-		Event evento = new Event(id, fecha, hora, activo, descripcion, username,userId);
+		Event evento = new Event(fecha, hora, activo, descripcion, username,userId);
 		session.getTransaction().begin();
 		session.save(evento);
 		session.getTransaction().commit();

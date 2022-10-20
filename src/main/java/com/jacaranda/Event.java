@@ -3,6 +3,8 @@ package com.jacaranda;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 public class Event {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private LocalDate fecha;
 	private double hora;
@@ -25,8 +28,8 @@ public class Event {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Event(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
-		this.id = id;
+	public Event(LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
+		super();
 		this.fecha = fecha;
 		this.hora = hora;
 		this.activo = activo;
