@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.jacaranda.CRUDUsuario" %>
+<%@ page import="com.jacaranda.CRUDSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +14,9 @@
    	String password = request.getParameter("password");
             	
 
-      CRUDUsuario user = new CRUDUsuario();
+   	CRUDSession crs1 = new CRUDSession();
     if(usuario !=null && password !=null){
-    	if(user.findUser(usuario, password)==true){
+    	if(crs1.getUser(usuario).getUsername().equals(usuario)){
             			
          	session.setAttribute("login", "True");
          	session.setAttribute("usuario", usuario);
