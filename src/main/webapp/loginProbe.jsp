@@ -15,6 +15,8 @@
             	
 
    	CRUDSession crs1 = new CRUDSession();
+   	
+   	
     if(usuario !=null && password !=null){
     	if(crs1.getUser(usuario).getUsername().equals(usuario)){
             			

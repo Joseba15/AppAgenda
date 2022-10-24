@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.mapping.List;
 
 public class CRUDSession {
 	
@@ -17,9 +16,13 @@ public class CRUDSession {
 	private Session session;
 
 	public CRUDSession() {
+		System.out.println("antes");
 		sr = new StandardServiceRegistryBuilder().configure().build();
+		System.out.println("antes de la factoria");
 		sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
+		System.out.println("despues de la factoria");
 		session = sf.openSession();
+		System.out.println("despues de abrir la sesión");
 	}
 	
 	//METODOS CONEXION BASE DE DATOS PARA USUARIO
@@ -81,7 +84,7 @@ public class CRUDSession {
 	//METODOS CONEXION BASE DE DATOS PARA EVENTOS
 	
 	
-	public void saveEvento(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
+	public void saveEvento(LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
 		Event evento = new Event(fecha, hora, activo, descripcion, username,userId);
 		session.getTransaction().begin();
 		session.save(evento);

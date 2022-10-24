@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name="evento")
 public class Event {
 	
 	@Id
@@ -22,7 +22,7 @@ public class Event {
 	private String username;
 	@ManyToOne
 	@JoinColumn(name="id")
-	private int userId;
+	private Integer userId;
 
 	public Event() {
 		// TODO Auto-generated constructor stub

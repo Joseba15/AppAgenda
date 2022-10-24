@@ -1,7 +1,7 @@
 <%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.jacaranda.CRUDEvent" %>
+<%@ page import="com.jacaranda.CRUDSession" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.time.ZoneId"%>
@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% CRUDEvent evento = new CRUDEvent(Integer.valueOf(request.getParameter("id")));
+	<%-- <% CRUDEvent evento = new CRUDEvent(Integer.valueOf(request.getParameter("id")));
 		evento.setDescripcion(request.getParameter("description"));
 		boolean yn = false;
 		if(request.getParameter("YN").equals("si")){
@@ -27,6 +27,6 @@
 		evento.setFecha(date);
 		
 		response.sendRedirect("principal.jsp");
-	%>
+	%> --%>
 </body>
 </html>
