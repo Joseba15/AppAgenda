@@ -42,7 +42,7 @@ public class CRUDSession {
 		int id = 1;
 		do {
 			usuario = session.get(User.class, id);
-			if (usuario.getUsername().equals(username)) {
+			if (usuario != null && usuario.getUsername().equals(username)) {
 				res = usuario;
 			}
 			id++;
@@ -54,7 +54,15 @@ public class CRUDSession {
 	
 	public ArrayList<User> getAllUser(){
 		ArrayList<User> listaUsuarios = new ArrayList<>();
-		listaUsuarios = (ArrayList<User>) session.createQuery("SELECT a FROM User a", User.class).getResultList(); 
+		User usuario;
+		int id = 1;
+		do {
+			usuario = session.get(User.class, id);
+			if(usuario != null) {
+				listaUsuarios.add(usuario);
+			}
+			id++;
+		}while(usuario != null);
 		return listaUsuarios;
 	}
 	
@@ -105,7 +113,7 @@ public class CRUDSession {
 //		}while(evento != null);
 //		return listaEventos;
 //	}
-//	
+//
 	public void updateEvent(int id, LocalDate fecha, double hora, boolean activo, String descripcion) {
 		Event evento = (Event) session.get(Event.class, id);
 		evento.setFecha(fecha);
