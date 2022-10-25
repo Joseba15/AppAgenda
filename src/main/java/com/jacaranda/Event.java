@@ -19,22 +19,20 @@ public class Event {
 	private double hora;
 	private boolean activo;
 	private String descripcion;
-	private String username;
 	@ManyToOne
-	@JoinColumn(name="id")
-	private Integer userId;
+	@JoinColumn(name="userId")
+	private User userId;
 
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Event(LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
+	public Event(LocalDate fecha, double hora, boolean activo, String descripcion,User userId) {
 		super();
 		this.fecha = fecha;
 		this.hora = hora;
 		this.activo = activo;
 		this.descripcion = descripcion;
-		this.username = username;
 		this.userId = userId;
 	}
 
@@ -70,21 +68,13 @@ public class Event {
 		this.descripcion = descripcion;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public int getId() {
 		return id;
 	}
 	public int getUserId() {
 		return id;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 

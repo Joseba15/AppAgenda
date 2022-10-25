@@ -54,15 +54,7 @@ public class CRUDSession {
 	
 	public ArrayList<User> getAllUser(){
 		ArrayList<User> listaUsuarios = new ArrayList<>();
-		User usuario;
-		int id = 1;
-		do {
-			usuario = session.get(User.class, id);
-			if (usuario != null) {
-				listaUsuarios.add(usuario);
-			}
-			id++;
-		}while(usuario != null);
+		listaUsuarios = (ArrayList<User>) session.createQuery("SELECT a FROM User a", User.class).getResultList(); 
 		return listaUsuarios;
 	}
 	
@@ -84,8 +76,8 @@ public class CRUDSession {
 	//METODOS CONEXION BASE DE DATOS PARA EVENTOS
 	
 	
-	public void saveEvento(LocalDate fecha, double hora, boolean activo, String descripcion, String username,int userId) {
-		Event evento = new Event(fecha, hora, activo, descripcion, username,userId);
+	public void saveEvento(LocalDate fecha, double hora, boolean activo, String descripcion ,User userId) {
+		Event evento = new Event(fecha, hora, activo, descripcion,userId);
 		session.getTransaction().begin();
 		session.save(evento);
 		session.getTransaction().commit();
@@ -100,27 +92,26 @@ public class CRUDSession {
 	
 	//OBTENER TODOS LOS EVENTOS DE UN USUARIO DADO EL ID DEL USER
 	
-	public ArrayList<Event> getEventsUser(int id){
-		User usuario = session.get(User.class, id);
-		Event evento;
-		ArrayList<Event> listaEventos = new ArrayList<>();
-		do {
-			evento = session.get(Event.class, id);
-			if (evento.getUsername().equals(usuario.getUsername())) {
-				listaEventos.add(evento);
-			}
-			id++;
-		}while(evento != null);
-		return listaEventos;
-	}
-	
-	public void updateEvent(int id, LocalDate fecha, double hora, boolean activo, String descripcion, String username) {
+//	public ArrayList<Event> getEventsUser(int id){
+//		User usuario = session.get(User.class, id);
+//		Event evento;
+//		ArrayList<Event> listaEventos = new ArrayList<>();
+//		do {
+//			evento = session.get(Event.class, id);
+//			if (evento.getUsername().equals(usuario.getUsername())) {
+//				listaEventos.add(evento);
+//			}
+//			id++;
+//		}while(evento != null);
+//		return listaEventos;
+//	}
+//	
+	public void updateEvent(int id, LocalDate fecha, double hora, boolean activo, String descripcion) {
 		Event evento = (Event) session.get(Event.class, id);
 		evento.setFecha(fecha);
 		evento.setHora(hora);
 		evento.setActivo(activo);
 		evento.setDescripcion(descripcion);
-		evento.setUsername(username);
 		session.getTransaction().begin();
 		session.update(evento);
 		session.getTransaction().commit();

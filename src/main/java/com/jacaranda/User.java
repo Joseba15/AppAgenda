@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -12,7 +13,9 @@ public class User {
 	
 	@Id
 	private int userId;
+	@Column(name="nombreUsuario")
 	private String username;
+	@Column(name="contrasena")
 	private String password;
 	@OneToMany(mappedBy ="userId", cascade = CascadeType.ALL,
 			orphanRemoval = true)
