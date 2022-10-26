@@ -25,7 +25,7 @@
 		}
  		CRUDSession crs1 = new CRUDSession();
 		crs1.saveEvento(date, Double.valueOf(request.getParameter("hour")), yn,request.getParameter("description"), crs1.getUser(Integer.valueOf(request.getParameter("id"))));
-		response.sendRedirect("principalEvent.jsp");
+		response.sendRedirect("principalEvent.jsp?value="+Integer.valueOf(request.getParameter("id")));
 	%>
 </body>
 </html>
