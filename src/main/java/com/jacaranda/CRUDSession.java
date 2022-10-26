@@ -50,6 +50,11 @@ public class CRUDSession {
 		return res;
 	}
 	
+	public User getUser(Integer id) {
+		User res = session.get(User.class, id);
+		return res;
+	}
+	
 	//OBTENER TODOS LOS USUARIOS DE LA TABLA USER
 	
 	public ArrayList<User> getAllUser(){
@@ -98,22 +103,7 @@ public class CRUDSession {
 		return evento;
 	}
 	
-	//OBTENER TODOS LOS EVENTOS DE UN USUARIO DADO EL ID DEL USER
-	
-//	public ArrayList<Event> getEventsUser(int id){
-//		User usuario = session.get(User.class, id);
-//		Event evento;
-//		ArrayList<Event> listaEventos = new ArrayList<>();
-//		do {
-//			evento = session.get(Event.class, id);
-//			if (evento.getUsername().equals(usuario.getUsername())) {
-//				listaEventos.add(evento);
-//			}
-//			id++;
-//		}while(evento != null);
-//		return listaEventos;
-//	}
-//
+
 	public void updateEvent(int id, LocalDate fecha, double hora, boolean activo, String descripcion) {
 		Event evento = (Event) session.get(Event.class, id);
 		evento.setFecha(fecha);

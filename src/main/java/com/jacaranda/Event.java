@@ -71,8 +71,8 @@ public class Event {
 	public int getId() {
 		return id;
 	}
-	public int getUserId() {
-		return id;
+	public User getUserId() {
+		return userId;
 	}
 	public void setUserId(User userId) {
 		this.userId = userId;

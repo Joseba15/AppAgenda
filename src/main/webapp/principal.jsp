@@ -44,13 +44,13 @@
 			<table id="Info">
 			<tr>
 	               	<th>Usuario</th>
-	               	<td colspan="2"><a href="Formulario.jsp?value=<%=user%>"><img src="CSS/IMAGES/mas.png"  width=5%></a></td>
+	               	<td></td>
 				</tr>
 			<% for(int i=0; i<lista.size(); i++){  %>
 			
 			<tr>
 				<td><%=lista.get(i).getUsername()%></td>
-				<td colspan="2" class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
+				<td colspan="2" class="transparent"><a href="principalEvent.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
 			</tr>
 			<%} %>
 			</table>

@@ -20,7 +20,7 @@
             <h1>Crear Evento</h1>
             
             <form action="create.jsp" method="post">
-            <input type="hidden" value="<%=request.getParameter("value")%>" name = "username">
+            <input type="hidden" value="<%=request.getParameter("value")%>" name = "id">
 					<h4>Descripcion</h4>
 					<input type="text" name="description">
 					<h4>Fecha </h4>
