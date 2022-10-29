@@ -20,17 +20,17 @@
             <h1>Crear Evento</h1>
             
             <form action="create.jsp" method="post">
-            <input type="hidden" value="<%=request.getParameter("value")%>" name = "id">
+            <input type="hidden" value="<%=request.getParameter("value")%>" name = "id" required>
 					<h4>Descripcion</h4>
-					<input type="text" name="description">
+					<input type="text" name="description" maxlength="30" required>
 					<h4>Fecha </h4>
-					<input type="date" name="date">
+					<input type="date" name="date" required>
                     <h4>Hora</h4>
-                    <input type="text" name="hour" max="23">
+                    <input type="text" name="hour" maxlength="5" required>
                     <h4>Activo</h4>
                     <p>
                         Yes<input type="radio" name="YN" value="yes">
-                        No<input type="radio" name="YN" value="no">
+                        No<input type="radio" name="YN" value="no" checked>
                     </p>
 					<br>
 					<br>

@@ -11,7 +11,7 @@
 	<% 
 		CRUDSession crs1 = new CRUDSession();
 		crs1.deleteEvent(Integer.valueOf(request.getParameter("id")));
-		response.sendRedirect("principal.jsp");
+		response.sendRedirect("principalEvent.jsp?value="+Integer.valueOf(request.getParameter("idUser")));
 	%>
 </body>
 </html>

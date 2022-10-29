@@ -16,13 +16,9 @@ public class CRUDSession {
 	private Session session;
 
 	public CRUDSession() {
-		System.out.println("antes");
 		sr = new StandardServiceRegistryBuilder().configure().build();
-		System.out.println("antes de la factoria");
 		sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
-		System.out.println("despues de la factoria");
 		session = sf.openSession();
-		System.out.println("despues de abrir la sesión");
 	}
 	
 	//METODOS CONEXION BASE DE DATOS PARA USUARIO

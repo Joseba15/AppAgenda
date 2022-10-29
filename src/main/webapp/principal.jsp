@@ -22,8 +22,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
+<jsp:useBean id = "us" class = "com.jacaranda.User"></jsp:useBean>
+
 <title>Pagina principal</title>
-<link href="CSS/Principal.css" rel="stylesheet" type="text/css"></head>
+<link href="CSS/Principal.css" rel="stylesheet" type="text/css">
+<link href="CSS/locura.css" rel="stylesheet" type="text/css">
+</head>
 <body>
 	<div class="encabezado">
         <div class="rojo">
@@ -37,26 +42,33 @@
 	
 		
 		
-		<% 	User us = new User(user,password);
-			CRUDSession crs1 = new CRUDSession();
+		<% 	us = new User(user,password);
 			List<User> lista = crs1.getAllUser();
 		 %>
 			<table id="Info">
-			<tr>
+				<thead>
 	               	<th>Usuario</th>
 	               	<td></td>
-				</tr>
+				</thead>
+			<tbody>
 			<% for(int i=0; i<lista.size(); i++){  %>
 			
 			<tr>
 				<td><%=lista.get(i).getUsername()%></td>
-				<td colspan="2" class="transparent"><a href="principalEvent.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
+				<td colspan="2" class="transparent"><a href="principalEvent.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=5%></a></td>
 			</tr>
 			<%} %>
+			</tbody>
 			</table>
 
 	</div>
-	
-	<script type="text/javascript" src="JS/principal.js"></script>
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script src="JS/principal.js"> </script>
 </body>
 </html>

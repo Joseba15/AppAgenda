@@ -62,7 +62,8 @@
 					<%}else{%>
 						Inactivo
 					<%}%></td>
-				<td colspan="2" class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
+				<td class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
+				<td class="transparent"><a href="Delete.jsp?value=<%=lista.get(i).getId()%>&id=<%=usuario.getId()%>"><img src="CSS/IMAGES/borrado.png"  width=10%></a></td>
 			</tr>
 			<%} %>
 			</table>

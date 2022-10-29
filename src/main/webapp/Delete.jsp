@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.jacaranda.CRUDSession" %>
+<%@ page import="com.jacaranda.Event" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Delete</title>
 <link href="CSS/Form.css" rel="stylesheet" type="text/css">
 </head>
@@ -17,12 +20,13 @@
 
     <div id="container" align="center">
         <div id="formDiv">
-            <h1>Sing Up</h1>
+            <h1>Delete</h1>
             <form action="deleteEvent.jsp" method="post">
             		<input type="hidden" value="<%=Integer.valueOf(request.getParameter("value"))%>" name = "id">
-            		<h1>Are you sure you want to delete the event?</h1>
+            		<input type="hidden" value="<%=Integer.valueOf(request.getParameter("id"))%>" name = "idUser">
+            		<h2>Are you sure you want to delete the event </h2><h1><%=crs1.getEvent(Integer.valueOf(request.getParameter("value"))).getDescripcion()%></h1><h2>?</h2>
 					<button name="confirm">Confirm</button>
-					<a href="principal.jsp"><button name="back" type="button">Back</button></a>
+					<a href="principalEvent.jsp?value=<%=Integer.valueOf(request.getParameter("id"))%>"><button name="back" type="button">Back</button></a>
 			</form>
         </div>
     </div>
