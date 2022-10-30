@@ -17,7 +17,7 @@
    	
    	
     if(usuario !=null && password !=null){
-    	if(crs1.getUser(usuario).getUsername().equals(usuario)){
+    	if(crs1.getUser(usuario) != null && crs1.getUser(usuario).getUsername().equals(usuario)){
             			
          	session.setAttribute("login", "True");
          	session.setAttribute("usuario", usuario);
