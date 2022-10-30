@@ -11,7 +11,7 @@
 <body>
 	<% 
 		crs1.saveUser(request.getParameter("user"),request.getParameter("password"));
-		response.sendRedirect("LogIn.html");
+		response.sendRedirect("Index.html");
 	%>
 </body>
 </html>

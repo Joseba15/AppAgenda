@@ -25,7 +25,7 @@
 					<br>
 					<br>
 					<button name="confirm">Confirm</button>
-					<a href="Login.html"><button name="back" type="button">Back</button></a>
+					<a href="Index.html"><button name="back" type="button">Back</button></a>
 			</form>
         </div>
     </div>
