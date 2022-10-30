@@ -90,6 +90,12 @@ tr:hover {
 	transform: skew(40deg);
 }
 
+#logoutImage{
+	padding:1%;
+	float:right;
+}
+
 #headerImage{
-	padding-left:93%;
+	float:right;
+	padding-right:3%;
 }

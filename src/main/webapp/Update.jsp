@@ -19,6 +19,7 @@
         <div class="rojo"></div>
             <div class="rosa">
                 <img src="CSS/IMAGES/2038509.png"  width=4% id="headerImage">
+                <a href="Index.html"><img src="CSS/IMAGES/logout.png" width=2% id="logoutImage"></a>
             </div>
     </div>
 	<% Event e1 = crs1.getEvent(Integer.valueOf(request.getParameter("value"))); %>
@@ -28,11 +29,11 @@
            <form action="UpdateEvent.jsp" method="get">
            		<input type="hidden" value="<%=e1.getId()%>" name = "id">
 				<p>Descripcion: </p>
-				<textarea style = "resize:none" name="description"><%=e1.getDescripcion()%></textarea>
+				<textarea style = "resize:none" name="description" required><%=e1.getDescripcion()%></textarea>
 				<p>Fecha: </p>
-				<input type="date" name="date">
+				<input type="date" name="date" required>
 				<p>Hora: </p>
-				<input type="text" name="hour" max="23" min="0" value="<%=e1.getHora()%>">
+				<input type="text" name="hour" max="23" min="0" value="<%=e1.getHora()%>" required>
 				<p>Activo: </p>
 				<%if(e1.isActivo()){ %>
 					Si <input type="radio" name="YN" value="si" checked>

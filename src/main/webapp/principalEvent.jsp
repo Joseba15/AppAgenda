@@ -32,9 +32,12 @@
 <body>
 	<div class="encabezado">
         <div class="rojo">
+        	
 		</div>
         <div class="rosa">
             <img src="CSS/IMAGES/2038509.png"  width=4% id="headerImage">
+            <a href="Index.html"><img src="CSS/IMAGES/logout.png" width=2% id="logoutImage"></a>
+            <a href="principal.jsp"><img src="CSS/IMAGES/flecha.png" width=3% id="back"></a>
         </div>
     </div>
 	
@@ -54,7 +57,8 @@
 	               	<th>Fecha</th>
 	               	<th>Hora</th>
 	               	<th>Activo</th>
-	               	<td colspan="2"><a href="Formulario.jsp?value=<%=usuario.getId()%>"><img src="CSS/IMAGES/mas.png"  width=5%></a></td>
+	               	<td></td>
+	               	<td ><a href="Formulario.jsp?value=<%=usuario.getId()%>"><img src="CSS/IMAGES/mas.png"  width=5%></a></td>
 				</thead>
 				<tbody>
 					<% for(int i=0; i<lista.size(); i++){  %>

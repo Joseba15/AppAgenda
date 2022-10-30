@@ -35,6 +35,7 @@
 		</div>
         <div class="rosa">
             <img src="CSS/IMAGES/2038509.png"  width=4% id="headerImage">
+            <a href="Index.html"><img src="CSS/IMAGES/logout.png" width=2% id="logoutImage"></a>
         </div>
     </div>
 	

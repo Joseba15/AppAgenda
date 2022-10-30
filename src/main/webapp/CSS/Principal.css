@@ -94,6 +94,19 @@ td{
 	transform: skew(40deg);
 }
 
+
+#logoutImage{
+	padding:1%;
+	float:right;
+}
+
+#back{
+	float:right;
+	padding:1%;
+	padding-right:83%;
+}
+
 #headerImage{
-	padding-left:93%;
+	float:right;
+	padding-right:3%;
 }
