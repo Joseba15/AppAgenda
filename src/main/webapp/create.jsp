@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Insert title here</title>
 </head>
 <body>
@@ -23,7 +24,6 @@
 		if(request.getParameter("YN").equals("yes")){
 			yn = true;
 		}
- 		CRUDSession crs1 = new CRUDSession();
 		crs1.saveEvento(date, Double.valueOf(request.getParameter("hour")), yn,request.getParameter("description"), crs1.getUser(Integer.valueOf(request.getParameter("id"))));
 		response.sendRedirect("principalEvent.jsp?value="+Integer.valueOf(request.getParameter("id")));
 	%>

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Insert title here</title>
 </head>
 <body>
 	<% 
-		CRUDSession crs1 = new CRUDSession();
 		crs1.deleteEvent(Integer.valueOf(request.getParameter("id")));
 		response.sendRedirect("principalEvent.jsp?value="+Integer.valueOf(request.getParameter("idUser")));
 	%>

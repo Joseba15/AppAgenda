@@ -4,7 +4,7 @@
                     processing: "Tratamiento en curso...",
                     search: "Buscar&nbsp;:",
                     lengthMenu: "Agrupar de _MENU_ items",
-                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    info: "Mostrando del usuario _START_ al _END_ de un total de _TOTAL_ usuarios",
                     infoEmpty: "No existen datos.",
                     infoFiltered: "(filtrado de _MAX_ elementos en total)",
                     infoPostFix: "",

@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Insert title here</title>
 </head>
 <body>
-	<% CRUDSession crs1 = new CRUDSession();
+	<% 
 		crs1.saveUser(request.getParameter("user"),request.getParameter("password"));
 		response.sendRedirect("LogIn.html");
 	%>

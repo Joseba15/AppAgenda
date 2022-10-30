@@ -22,8 +22,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Pagina principal</title>
-<link href="CSS/Principal.css" rel="stylesheet" type="text/css"></head>
+
+<link href="CSS/Principal.css" rel="stylesheet" type="text/css">
+<link href="CSS/locura.css" rel="stylesheet" type="text/css">
+
+</head>
 <body>
 	<div class="encabezado">
         <div class="rojo">
@@ -37,39 +42,48 @@
 	
 		
 		
-		<%	CRUDSession crs1 = new CRUDSession();
+		<%	
 			User usuario = crs1.getUser(Integer.valueOf(request.getParameter("value")));
+			usuario.setEvents(crs1.loadUserList(usuario.getId()));
 			List<Event> lista = usuario.getEvents();
 		 %>
 			<table id="Info">
-			<tr>
+				<thead>
 	               	<th>Evento</th>
 	               	<th>Descripcion</th>
 	               	<th>Fecha</th>
 	               	<th>Hora</th>
 	               	<th>Activo</th>
 	               	<td colspan="2"><a href="Formulario.jsp?value=<%=usuario.getId()%>"><img src="CSS/IMAGES/mas.png"  width=5%></a></td>
-				</tr>
-			<% for(int i=0; i<lista.size(); i++){  %>
-			
-			<tr>
-				<td><%=lista.get(i).getId()%></td>
-				<td><%=lista.get(i).getDescripcion()%></td>
-				<td><%=lista.get(i).getFecha()%></td>
-				<td><%=lista.get(i).getHora()%></td>
-				<td><%if(lista.get(i).isActivo()){%>
-						Activo
-					<%}else{%>
-						Inactivo
-					<%}%></td>
-				<td class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
-				<td class="transparent"><a href="Delete.jsp?value=<%=lista.get(i).getId()%>&id=<%=usuario.getId()%>"><img src="CSS/IMAGES/borrado.png"  width=10%></a></td>
-			</tr>
-			<%} %>
+				</thead>
+				<tbody>
+					<% for(int i=0; i<lista.size(); i++){  %>
+					
+					<tr>
+						<td><%=lista.get(i).getId()%></td>
+						<td><%=lista.get(i).getDescripcion()%></td>
+						<td><%=lista.get(i).getFecha()%></td>
+						<td><%=lista.get(i).getHora()%></td>
+						<td><%if(lista.get(i).isActivo()){%>
+								Activo
+							<%}else{%>
+								Inactivo
+							<%}%></td>
+						<td class="transparent"><a href="Update.jsp?value=<%=lista.get(i).getId()%>"><img src="CSS/IMAGES/editar.png"  width=10%></a></td>
+						<td class="transparent"><a href="Delete.jsp?value=<%=lista.get(i).getId()%>&id=<%=usuario.getId()%>"><img src="CSS/IMAGES/borrado.png"  width=10%></a></td>
+					</tr>
+					<%} %>
+				</tbody>
 			</table>
 
 	</div>
-	
-	<script type="text/javascript" src="JS/principal.js"></script>
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script src="JS/principal.js"></script>
 </body>
 </html>

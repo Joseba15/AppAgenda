@@ -2,6 +2,9 @@ package com.jacaranda;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -99,6 +102,23 @@ public class CRUDSession {
 		return evento;
 	}
 	
+	public List<Event> loadList(){
+
+		List<Event> listCatalogo= new ArrayList<>();
+		Query query=session.createQuery("SELECT e FROM evento e");
+		listCatalogo= query.getResultList();
+		return listCatalogo;
+		
+	}
+	
+	public List<Event> loadUserList(int userId){
+
+		List<Event> listCatalogo= new ArrayList<>();
+		Query query=session.createQuery("SELECT e FROM evento e WHERE userId = '"+userId+"'");
+		listCatalogo= query.getResultList();
+		return listCatalogo;
+		
+	}
 
 	public void updateEvent(int id, LocalDate fecha, double hora, boolean activo, String descripcion) {
 		Event evento = (Event) session.get(Event.class, id);

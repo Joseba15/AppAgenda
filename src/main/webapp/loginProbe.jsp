@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id = "crs1" class = "com.jacaranda.CRUDSession"></jsp:useBean>
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,8 +14,6 @@
    	String usuario = request.getParameter("user");
    	String password = request.getParameter("password");
             	
-
-   	CRUDSession crs1 = new CRUDSession();
    	
    	
     if(usuario !=null && password !=null){
